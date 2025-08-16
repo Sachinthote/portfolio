@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Thote - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Fira Code', monospace;
+            color: #d1d5db;
+            scroll-behavior: smooth;
+            background: #0d1117;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2363b3ed' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            animation: moveGrid 30s linear infinite;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        @keyframes moveGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 400px 400px; }
+        }
+
+        .section-title {
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #38bdf8;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+            animation: fadeIn 1s ease-in-out;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #38bdf8;
+            border-radius: 9999px;
+            animation: expandLine 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        .card {
+            background-color: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.2);
+            border-color: rgba(56, 189, 248, 0.6);
+        }
+        
+        .contact-icon {
+            transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
+        }
+        .contact-icon:hover {
+            transform: scale(1.2);
+            color: #38bdf8;
+            filter: drop-shadow(0 0 5px #38bdf8);
+        }
+
+        .cta-button {
+            background-image: linear-gradient(to right, #38bdf8, #22d3ee);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Typing effect for hero title */
+        .typewriter-container {
+            display: inline-block;
+        }
+        .typewriter-text {
+            overflow: hidden;
+            border-right: 0.15em solid #38bdf8;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.1em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #38bdf8; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gray-900 bg-opacity-80 py-6 sticky top-0 z-50 shadow-lg backdrop-blur-sm">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-sky-400 hover:text-sky-300 transition-colors" style="font-family: 'Orbitron', sans-serif;">
+                SACHIN THOTE
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="#about" class="text-gray-400 hover:text-sky-400 transition-colors">/about</a>
+                <a href="#skills" class="text-gray-400 hover:text-sky-400 transition-colors">/skills</a>
+                <a href="#experience" class="text-gray-400 hover:text-sky-400 transition-colors">/experience</a>
+                <a href="#projects" class="text-gray-400 hover:text-sky-400 transition-colors">/projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-sky-400 transition-colors">/contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+        
+        <!-- Hero Section -->
+        <section class="flex flex-col md:flex-row items-center justify-between mb-24 text-center md:text-left">
+            <div class="md:w-full">
+                <h1 class="text-5xl md:text-6xl font-bold text-sky-400 mb-4" style="font-family: 'Orbitron', sans-serif;">
+                    Hello, I'm Sachin Thote
+                </h1>
+                <div class="text-2xl md:text-3xl text-gray-300">
+                    <div class="typewriter-container">
+                        <span class="typewriter-text">Full-Stack Developer | Data Analyst</span>
+                    </div>
+                </div>
+                <p class="mt-8 text-lg leading-relaxed text-gray-400 md:w-3/4 mx-auto md:mx-0">
+                    Passionate about building scalable web applications and leveraging data-driven insights to create efficient, user-centric solutions.
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#projects" class="px-6 py-3 rounded-full font-bold cta-button text-gray-900">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-full font-bold text-sky-400 border border-sky-400 hover:bg-sky-400 hover:text-gray-900 transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="mb-16">
+            <h2 class="section-title">About_Me()</h2>
+            <div class="card p-8 shadow-xl">
+                <p class="text-lg leading-relaxed text-gray-400 mb-8">
+                    A versatile Full-Stack Developer and Data Analyst with a passion for building robust, user-centric solutions. With hands-on experience in modern JavaScript frameworks and a strong foundation in data analysis and machine learning, I excel at bridging the gap between front-end user experience and data-driven insights. My proven track record includes optimizing application performance by 30%, building predictive models with 85% accuracy, and effectively collaborating in Agile development environments.
+                </p>
+                <h3 class="text-2xl font-semibold text-sky-400 mb-4" style="font-family: 'Orbitron', sans-serif;">Education</h3>
+                <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                    <li>Bachelor of Engineering, D.Y. Patil College of Engineering, Akurdi (CGPA: 8.42/10)</li>
+                    <li>12th, Shri Shivaji Higher Secondary School, Kandhar (Percentage: 87.67%)</li>
+                    <li>10th, Shri Shivaji High School, Nanded (Percentage: 93%)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-16">
+            <h2 class="section-title">Technical_Skills()</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Frontend -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-sky-400">Frontend</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-400">
+                        <li>React.js, Next.js, JavaScript (ES6+), HTML5, CSS3, Redux Toolkit</li>
+                        <li>Tailwind CSS, Bootstrap, Material-UI, Responsive Design</li>
+                    </ul>
+                </div>
+                <!-- Backend & Databases -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-sky-400">Backend & Databases</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-400">
+                        <li>Node.js, Express.js, RESTful APIs, Django, Python</li>
+                        <li>MongoDB, MySQL, Firebase Firestore</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+                 <!-- Data Science -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-sky-400">Data Science</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-400">
+                        <li>Python, R, SQL</li>
+                        <li>Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly</li>
+                        <li>Power BI, Tableau, Excel</li>
+                    </ul>
+                </div>
+                <!-- ML & AI -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-3 text-sky-400">Machine Learning</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-400">
+                        <li>SVM, XGBoost, Random Forest, CNN, Image Classification</li>
+                        <li>Hypothesis Testing, A/B Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Leadership & Achievements -->
+        <section id="leadership" class="mb-16">
+            <h2 class="section-title">Leadership_and_Achievements()</h2>
+            <div class="card p-8">
+                <ul class="list-disc list-outside ml-4 space-y-4 text-gray-400">
+                    <li>Social Media Lead - Technical Club ISA: Increased engagement by 45% through strategic content planning and execution.</li>
+                    <li>Event Coordinator: Led a team of 8 members for cultural events, managing logistics and stakeholder communications.</li>
+                    <li>Technical Presenter: Delivered project demonstrations at college exhibitions, receiving positive faculty feedback.</li>
+                    <li>Open Source Contributor: Active on GitHub with many repositories showcasing diverse technical projects.</li>
+                    <li>Academic Achievement: Maintained a CGPA of 8.42/10 with a focus on quantitative and analytical coursework.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience" class="mb-16">
+            <h2 class="section-title">Professional_Experience()</h2>
+            <div class="card p-8">
+                <div class="flex flex-col sm:flex-row justify-between mb-4">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400" style="font-family: 'Orbitron', sans-serif;">Web Development Intern</h3>
+                        <p class="text-lg text-gray-500">Saavi Softwares, Pune, Maharashtra</p>
+                    </div>
+                    <span class="text-md text-gray-500 mt-2 sm:mt-0">Feb 2024 - Apr 2024</span>
+                </div>
+                <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                    <li>Built 10+ reusable React components with modern hooks and state management, improving UI responsiveness by 30%.</li>
+                    <li>Implemented Redux Toolkit for centralized state management, reducing data synchronization issues by 50%.</li>
+                    <li>Collaborated with cross-functional teams to integrate REST APIs using Axios, ensuring seamless data flow.</li>
+                    <li>Participated in code reviews and contributed to UI/UX improvements, resulting in 20% reduction in bug reports.</li>
+                    <li>Optimized application performance through lazy loading and component memoization techniques.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-16">
+            <h2 class="section-title">Key_Projects()</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Development Projects -->
+                <div class="project-card card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400 mb-2" style="font-family: 'Orbitron', sans-serif;">Phony Profile Detection System</h3>
+                        <p class="text-gray-500 mb-4">
+                            Python, Django, Machine Learning, Docker
+                        </p>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                            <li>Engineered a hybrid ML system using SVM and XGBoost algorithms with MobileNet V2 embeddings.</li>
+                            <li>Achieved 92% accuracy in image-based classification.</li>
+                            <li>Built a responsive web interface using Django and Bootstrap, deployed with Docker.</li>
+                            <li>Integrated real-time profile analysis, processing 100+ profiles per minute.</li>
+                        </ul>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://github.com/sachinthote/phony-profile-detection" target="_blank" class="px-4 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors cta-button">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400 mb-2" style="font-family: 'Orbitron', sans-serif;">Horizon - Financial Management Platform</h3>
+                        <p class="text-gray-500 mb-4">
+                            Next.js, Firebase, Tailwind CSS
+                        </p>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                             <li>Developed a comprehensive fintech dashboard integrating multiple bank accounts.</li>
+                             <li>Implemented secure authentication using Firebase Auth and JWT.</li>
+                             <li>Built transaction visualization and fund transfer modules.</li>
+                             <li>Optimized API calls and implemented caching strategies for 40% faster page loads.</li>
+                        </ul>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://github.com/sachinthote/horizon-finance" target="_blank" class="px-4 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors cta-button">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400 mb-2" style="font-family: 'Orbitron', sans-serif;">Movix - Movie Discovery Platform</h3>
+                        <p class="text-gray-500 mb-4">
+                            React.js, TMDB API, Redux, localStorage
+                        </p>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                            <li>Created a dynamic movie recommendation engine with advanced filtering and search.</li>
+                            <li>Integrated TMDB API for real-time movie data.</li>
+                            <li>Achieved 90% user satisfaction with 500+ active users during testing.</li>
+                            <li>Implemented responsive design for mobile and desktop platforms.</li>
+                        </ul>
+                    </div>
+                    <div class="flex space-x-4 mt-auto">
+                        <a href="https://movix-app.vercel.app" target="_blank" class="px-4 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors cta-button">
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/sachinthote/movix-app" target="_blank" class="px-4 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors cta-button">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Science Projects -->
+            <h2 class="section-title mt-16">Data_Science_Projects()</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Project 1: Cafeteria Sales Forecasting -->
+                <div class="project-card card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400 mb-2" style="font-family: 'Orbitron', sans-serif;">Cafeteria Sales Forecasting & Revenue Optimization</h3>
+                        <p class="text-gray-500 mb-4">
+                            Python, SQL, Power BI, Time Series
+                        </p>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                             <li>Analyzed 50K+ transactional records using SQL and Python to identify patterns.</li>
+                             <li>Built predictive models with linear regression and ARIMA for 85% accuracy.</li>
+                             <li>Created interactive Power BI dashboards, resulting in 15% inventory cost reduction.</li>
+                             <li>Applied statistical analysis to determine peak hours, improving revenue by 12%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2: Customer Segmentation -->
+                <div class="project-card card p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-sky-400 mb-2" style="font-family: 'Orbitron', sans-serif;">Customer Segmentation & Market Basket Analysis</h3>
+                        <p class="text-gray-500 mb-4">
+                            Python, Clustering, Association Rules
+                        </p>
+                        <ul class="list-disc list-outside ml-4 space-y-2 text-gray-400">
+                            <li>Applied K-means clustering and hierarchical clustering to segment customers.</li>
+                            <li>Implemented Apriori algorithm for market basket analysis with 92% confidence.</li>
+                            <li>Created customer personas and targeting strategies, improving marketing campaign effectiveness by 25%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-16 text-center">
+            <h2 class="section-title mx-auto w-fit">Get_In_Touch()</h2>
+            <p class="text-lg leading-relaxed text-gray-400 mb-8">
+                Ready to collaborate on your next project? I'm always excited to work on innovative solutions that combine cutting-edge technology with real-world impact. Feel free to connect with me!
+            </p>
+            <div class="flex justify-center space-x-6 text-gray-400">
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/sachin-thote-5365b0240" target="_blank" class="contact-icon hover:text-sky-400">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765s.784-1.765 1.75-1.765 1.75.79 1.75 1.765-.783 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.75 7 2.404v6.831z"/>
+                    </svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/sachinthote" target="_blank" class="contact-icon hover:text-sky-400">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.819-.261.819-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.542-1.373-1.328-1.742-1.328-1.742-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.494.997.107-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.381 1.236-3.221-.124-.3-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.876.118 3.176.772.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.815 1.102.815 2.228 0 1.605-.015 2.899-.015 3.298 0 .317.218.692.824.577 4.766-1.587 8.203-6.085 8.203-11.389 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <!-- Email -->
+                <a href="mailto:thotesachin2020@gmail.com" target="_blank" class="contact-icon hover:text-sky-400">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                    </svg>
+                </a>
+                <!-- Phone -->
+                <a href="tel:+91-7249008685" target="_blank" class="contact-icon hover:text-sky-400">
+                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.74 21 3 13.26 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.03.75-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-gray-500 mt-4">&copy; 2025 Sachin Thote. All rights reserved.</p>
+        </section>
+
+    </main>
+</body>
+</html>
